@@ -20,20 +20,4 @@
     object-fit: cover;
     border-radius: var(--border-radius);
   }
-
-  .icon--small{
-    height: 20px;
-    width: auto;
-  }
-
-  .icon-medium{
-    height: 35px;
-    width: 35px;
-    object-fit: cover;
-  }
-
-  .icon--large{
-    height: 70px;
-    width: auto;
-  }
 </style>
