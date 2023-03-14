@@ -11,7 +11,13 @@ textTag='h2' textStyle='main-title'>
   Homepage
 </Text>
 
-<Button> Se connecter </Button>
+<Button
+buttonWidth='button--full'> 
+  Se connecter 
+</Button>
+<Button> 
+  Se connecter 
+</Button>
 
 <Link
 linkUrl='/reset-password'> 
