@@ -3,14 +3,14 @@
     export let id = '';
     export let name = '';
     export let placeholder = '';
-
 </script>
 
-<input class="input"
+<input 
 type={type}
 id={id} 
 name={name} 
 placeholder={placeholder}
+class="input {$$props.class}"
 />
 
 
@@ -20,7 +20,7 @@ placeholder={placeholder}
       border: var(--border-height-regular) solid var(--color-disabled);
       border-radius: var(--color-disabled);
       padding: 16px;
-      width: 100%;
+      width: calc(100% - 32px);
       max-width: 380px;
       font-family: var(--font-family-primary);
       border-radius: var(--small-radius);
