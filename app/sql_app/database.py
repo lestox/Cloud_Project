@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 
 # Define the MariaDB engine using MariaDB Connector/Python
 
-SQLALCHEMY_DATABASE_URL = "mariadb+mariadbconnector://root:password@127.0.0.1:8081/data"
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:password@127.0.0.1:8081/data"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
