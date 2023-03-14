@@ -1,4 +1,11 @@
-<button class="button">            
+<script>
+    /**
+     * @type {string}
+    */
+    export let buttonWidth;
+</script>
+
+<button class="button {buttonWidth}" >            
     <slot/>
 </button>
 
@@ -6,12 +13,12 @@
 <style>
   .button{
     font-family: var(--font-family-primary);
+    font-size: 16px;
     background-color: var(--color-primary);
     color: var(--color-text-light);
     border: var(--border-height-thick) solid var(--color-primary);
     border-radius: var(--small-radius);
-    padding: 16px;
-    min-width: 380px;
+    padding: 16px 40px;
   }
   
   .button:hover{
@@ -31,5 +38,9 @@
 
   .button:focus{ 
     border: var(--border-height-thick) solid var(--color-highlight);
+  }
+
+  .button--full{
+    width: 100%;
   }
 </style>
