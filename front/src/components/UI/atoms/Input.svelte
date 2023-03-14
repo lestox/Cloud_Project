@@ -31,7 +31,8 @@ class="input {$$props.class}"
     }
 
     .input:focus-visible {
-        border: var(--border-height-thick) solid var(--color-highlight);
+        outline: var(--border-height-thick) solid var(--color-highlight);
+        outline-offset: -1px;
     }
 
     .input-valid {
