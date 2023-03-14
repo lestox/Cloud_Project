@@ -1,2 +1,7 @@
-<h1>Login Page</h1>
+<script>
+    import LoginTemplate from '../../components/UI/templates/LoginTemplate.svelte';
+    import '../../assets/global.css';
+</script>
 
+
+<LoginTemplate/>
