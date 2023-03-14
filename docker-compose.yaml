@@ -9,19 +9,23 @@ services:
             - '2345:80'
 
     db:
-        image: 'mariadb'
+        image: mysql:5.7
         restart: always
         environment:
-            MYSQL_DATABASE: data
-            MYSQL_ROOT_PASSWORD: password
-        # volumes:
-            # Pour lancer un dump automatiquement au montage du conteneur
-            # - ./db/data.sql:/docker-entrypoint-initdb.d/dump.sql
+            MYSQL_DATABASE: 'data'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_ROOT_PASSWORD: 'password'
+        ports:
+            - '3306:3306'
+        expose:
+            - '3306'
+        volumes:
+            - db:/var/lib/mysql
 
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        container_name: pma
+        container_name: phpmyadmin
         links:
             - db
         environment:
