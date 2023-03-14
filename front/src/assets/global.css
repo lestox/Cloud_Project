@@ -99,6 +99,7 @@ button:focus {
   --large-radius: 72px;
   --card-radius: 40px;
   --small-radius: 24px;
+  --x-small-radius: 10px;
 
 
   --border-height-regular: 1px;
@@ -120,7 +121,7 @@ body{
 }
 
 .block-center{
-  display: flex;
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
