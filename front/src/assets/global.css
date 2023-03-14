@@ -100,10 +100,13 @@ button:focus {
   --card-radius: 40px;
   --small-radius: 24px;
 
-
   --border-height-regular: 1px;
   --border-height-thick: 3px;
-  
+
+   /* SPACING */
+  --spacing-1: 20px;
+  --spacing-2: 40px;
+  --spacing-3: 85px;
 }
 
 
@@ -139,8 +142,22 @@ body{
 
 .text-semibold{
   font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-regular);
 }
 
 .text-light{
   font-weight: var(--font-weight-light);
+  font-size: var(--font-size-regular);
+}
+
+.margin-top-1 {
+  margin-top: var(--spacing-1);
+}
+
+.margin-top-2 {
+  margin-top: var(--spacing-2);
+}
+
+.margin-top-3 {
+  margin-top: var(--spacing-3);
 }

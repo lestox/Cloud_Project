@@ -5,7 +5,7 @@
     export let buttonWidth;
 </script>
 
-<button class="button {buttonWidth}" >            
+<button class="button {buttonWidth} {$$props.class}">            
     <slot/>
 </button>
 
@@ -19,6 +19,7 @@
     border: var(--border-height-thick) solid var(--color-primary);
     border-radius: var(--small-radius);
     padding: 16px 40px;
+    cursor: pointer;
   }
   
   .button:hover{

@@ -1,11 +1,11 @@
 <script>
     import Text from '../atoms/Text.svelte';
-    import Login from '../molecules/forms/LoginForm.svelte';
+    import RegisterForm from '../molecules/forms/RegisterForm.svelte';
 </script>
 
 <div class='login-section {$$props.class}'>
-    <Text textTag='h1' textStyle='main-title'>Welcome back 👋</Text>
-    <Login class='margin-top-3' method="Post" action="/login"/>
+    <Text textTag='h1' textStyle='main-title'>Welcome 👋</Text>
+    <RegisterForm class='margin-top-3' method="Post" action="/register"/>
 </div>
 
 <style>

@@ -7,7 +7,7 @@
 </script>
 
 <a href="{linkUrl}"
-  class="link" style:color={linkColor}>          
+  class="link {$$props.class}" style:color={linkColor}>          
     <slot/>
 </a>
 
@@ -16,6 +16,8 @@
     font-family: var(--font-family-primary);
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
     text-decoration: none;
+    display: inline-block;
   }
 </style>

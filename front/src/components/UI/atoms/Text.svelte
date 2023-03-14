@@ -9,7 +9,7 @@
 
 <svelte:element this={textTag}
   style:color={textColor}
-  class={textStyle} 
+  class={textStyle + ' ' + $$props.class} 
 >
   <slot/>
 </svelte:element>
