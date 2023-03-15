@@ -25,8 +25,16 @@
     <Button> Add site </Button>
 
     <div class="content-cards margin-top-2">
-      <ProjectCard />
-      <ProjectCard />
+      <ProjectCard 
+        projectName = 'Project Name 1'
+        projectCreation = '09/12/2022'
+        projectUpdate = '03/01/2023'
+      />
+      <ProjectCard 
+        projectName = 'Project Name 2'
+        projectCreation = '05/03/2023'
+        projectUpdate = '13/03/2023'
+      />
     </div>
   </div>
 
