@@ -46,7 +46,3 @@ volumes:
 
 networks:
   postgres:
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
