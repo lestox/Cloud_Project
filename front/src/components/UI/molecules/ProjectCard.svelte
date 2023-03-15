@@ -4,6 +4,13 @@
   import Icon from "../atoms/Icon.svelte";
 
   import ProjectIcon from "../../../assets/icons/ProjectIcon.svelte";
+
+  /**
+   * @type {string}
+  */
+  export let projectName = 'Project Name';
+  export let projectCreation = '02/03/2023';
+  export let projectUpdate = '03/03/2023';
 </script>
 
 <div class='project-card'>
@@ -18,7 +25,7 @@
         textColor = 'var(--color-primary)' 
         class='section-title'
       >
-        Project Name 1 
+        {projectName} 
       </Text>
     </Link>
     <hr />
@@ -30,14 +37,14 @@
       textColor = 'var(--color-primary)' 
       class='project-card__label text-light text-preset-2'
     >
-      Created : 02/06/2022
+      Created: {projectCreation}
     </Text>
     <Text
       textTag='p'
       textColor = 'var(--color-primary)' 
       class='.project-card__label text-light text-preset-2'
     >
-      Updated : 04/02/2023
+      Updated: {projectUpdate}
     </Text>
   </div>
 
