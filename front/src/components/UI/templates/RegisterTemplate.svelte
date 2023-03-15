@@ -1,5 +1,7 @@
 <script>
     import Register from "../organisms/Register.svelte";
+    import Image from "../atoms/Image.svelte";
+    import ProjectIcon from '../../../assets/img/logo_white.png';
 </script>
 
 <body>
@@ -8,7 +10,7 @@
             <Register class='margin-top-3'/>
         </div>
         <div class='logo-section'>
-            
+          <Image imageSrc={ProjectIcon} imageAlt="Sky Cloud" imageStyle="image--regular block-center" />
         </div>
     </div>
 </body>

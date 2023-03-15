@@ -5,8 +5,14 @@
   import Image from '../components/UI/atoms/Image.svelte';
 </script>
 
-<Image src="../assets/img/logo_white.png"
-alt="Hello"
-class="image--large" />
+<Image imageSrc={ProjectIcon}
+imageAlt="Hello"
+imageStyle="image--larg" />
+
+<style>
+  body {
+    background-color: black;
+  }
+</style>
 
 

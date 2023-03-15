@@ -1,6 +1,7 @@
 <script>
     import Login from "../organisms/Login.svelte";
-
+    import Image from "../atoms/Image.svelte";
+    import ProjectIcon from '../../../assets/img/logo_white.png';
 </script>
 
 <body>
@@ -8,8 +9,8 @@
         <div class='login-section'>
             <Login class='margin-top-3'/>
         </div>
-        <div class='logo-section'>
-            
+        <div class='logo-section'> 
+            <Image imageSrc={ProjectIcon} imageAlt="Sky Cloud" imageStyle="image--regular block-center" />
         </div>
     </div>
 </body>
@@ -35,7 +36,8 @@
     }
 
     .logo-section {
-        background-color: var(--color-primary);
-        border-radius: 0 var(--large-radius) var(--large-radius) 0;
+      background-color: var(--color-primary);
+      border-radius: 0 var(--large-radius) var(--large-radius) 0;
     }
+
 </style>
