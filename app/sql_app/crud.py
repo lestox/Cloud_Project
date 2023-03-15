@@ -1,3 +1,17 @@
+from app.sql_app.models import Users, UsersCreate
+
+
+async def add_user(session, fullname: str, email: str, password: str):
+    user = Users(fullname, email, password)
+    session.add(user)
+    await session.commit()
+    await session.refresh(user)
+    return user
+
+
+
+
+
 # from sqlalchemy.ext.asyncio import AsyncSession
 # from . import models, schemas
 #

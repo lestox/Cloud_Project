@@ -56,14 +56,15 @@
 # #     if db_user:
 # #         raise HTTPException(status_code=400, detail="Email already registered")
 # #     return crud.create_user(db=db, user=user)
+import logging
 
-
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.sql_app.database import get_session
-from app.sql_app.models import User, UserCreate
+from app.sql_app.models import Users, UsersCreate
+from app.sql_app import crud
 
 app = FastAPI()
 
@@ -73,17 +74,18 @@ async def pong():
     return {"ping": "pong!"}
 
 
-@app.get("/users", response_model=list[User])
+@app.get("/users")
 async def get_users(session: AsyncSession = Depends(get_session)):
-    result = await session.execute(select(User))
+    result = await session.execute(select(Users))
     users = result.scalars().all()
-    return [User(fullname=user.fullname, email=user.email, id=user.id) for user in users]
+    return users
 
 
-# @app.post("/users")
-# async def add_user(song: SongCreate, session: AsyncSession = Depends(get_session)):
-#     song = Song(name=song.name, artist=song.artist, year=song.year)
-#     session.add(song)
-#     await session.commit()
-#     await session.refresh(song)
-#     return song
+@app.post("/register")
+async def register(user: UsersCreate, session: AsyncSession = Depends(get_session)):
+    logging.info(f'--------------{Users.get_by_email(session, user.email)}-----------------------')
+    print(f'--------------{Users.get_by_email(session, user.email)}-----------------------')
+    if Users.get_by_email(session, user.email):
+        raise HTTPException(status_code=400, detail="Email already registered")
+    create_user = crud.add_user(session, user.fullname, user.email, user.password)
+    return create_user
