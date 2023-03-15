@@ -15,7 +15,7 @@ services:
             - db
 
     db:
-        image: postgres:13.4
+        image: postgres:13.3
         restart: always
         environment:
             - POSTGRES_USER=postgres
@@ -25,18 +25,25 @@ services:
             - '5432'
         volumes:
             - db:/var/lib/postgres
+        networks:
+            - postgres
 
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: phpmyadmin
+    pgadmin:
+        image: dpage/pgadmin4
+        container_name: pgadmin
         links:
             - db
         environment:
-            PMA_HOST: db
-            PMA_PORT: 5432
-            PMA_ARBITRARY: 1
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: postgres
         restart: always
         ports:
             - "8081:80"
+        networks:
+            - postgres
 volumes:
     db:
+
+networks:
+  postgres:
+    
