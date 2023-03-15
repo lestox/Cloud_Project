@@ -9,8 +9,10 @@
 </script>
 
 <div class='sidebar-infos'>
-  <UserCard />
-  <hr class="margin-top-1"/>  
+  <div class='margin-top-2'>
+    <UserCard />
+    <hr class="margin-top-1"/>
+  </div> 
 
   <div class="margin-top-3">
     <Text 
@@ -77,7 +79,7 @@
     width: 10%;
     min-width: 280px;
     height: 100vh;  
-    padding: var(--spacing-2);
+    padding: 0 var(--spacing-2);
     background-color: var(--color-background-primary);
   }  
 </style>
