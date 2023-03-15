@@ -7,7 +7,7 @@
 <body>
     <div class='global-card'>
         <div class='register-section'>
-            <Register class='margin-top-3'/>
+            <Register />
         </div>
         <div class='logo-section'>
           <Image imageSrc={ProjectIcon} imageAlt="Sky Cloud" imageStyle="image--regular block-center" />
@@ -16,11 +16,11 @@
 </body>
 
 <style>
-    body {
+    body{
       background-color: var(--color-background-secondary);
     }
 
-    .global-card {
+    .global-card{
       width: 92vw;
       height: 94vh;
       margin: 3vh auto;
@@ -30,13 +30,13 @@
       border-radius: var(--large-radius);
     }
 
-    .register-section {
+    .register-section, .logo-section{
       display: flex;
       justify-content: center;
     }
 
-    .logo-section {
-        background-color: var(--color-primary);
-        border-radius: 0 var(--large-radius) var(--large-radius) 0;
+    .logo-section{
+      background-color: var(--color-primary);
+      border-radius: 0 var(--large-radius) var(--large-radius) 0;
     }
 </style>

@@ -21,8 +21,8 @@
 <style>
   .sidebar-menu{
     width: 10%;
-    min-width: 280px;
-    height: 100vh;  
+    min-width: 250px;
+    height: calc(100vh - 50px);  
     padding-left: 40px; 
     padding-top: 50px;
     background-color: var(--color-background-primary);

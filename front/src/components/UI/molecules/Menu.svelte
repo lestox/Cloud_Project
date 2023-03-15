@@ -19,7 +19,7 @@
       <HomeIcon />
     </Icon>
     <Link
-    linkUrl='/reset-password'> 
+    linkUrl='/dashboard'> 
       My cloud
     </Link>
   </div>
@@ -29,7 +29,7 @@
       <AccountIcon />
     </Icon>
     <Link
-    linkUrl='/reset-password'> 
+    linkUrl='/account'> 
       Account 
     </Link>
   </div>
@@ -39,7 +39,7 @@
       <LogoutIcon />
     </Icon>
     <Link
-    linkUrl='/reset-password'> 
+    linkUrl='/'> 
       Logout
     </Link>
   </div>
