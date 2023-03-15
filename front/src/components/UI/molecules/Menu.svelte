@@ -6,10 +6,15 @@
   import AccountIcon from "../../../assets/icons/AccountIcon.svelte";
   import LogoutIcon from "../../../assets/icons/LogoutIcon.svelte";
 
+  /**
+   * @type {string}
+  */
+  export let current = 'home';
+
 </script>
 
 <div class="menu">
-  <div class="menu-el menu-el--active">
+  <div class="menu-el {current === 'home' ? 'menu-el--active' : ''}">
     <Icon name="home" >
       <HomeIcon />
     </Icon>
@@ -19,7 +24,7 @@
     </Link>
   </div>
 
-  <div class="menu-el">
+  <div class="menu-el {current === 'account' ? 'menu-el--active' : ''}">
     <Icon name="account">
       <AccountIcon />
     </Icon>

@@ -4,16 +4,24 @@
   */
   export let imageSrc = '';
   export let imageAlt = 'image';
-  export let imageStyle = 'image--large';
+  export let imageStyle;
+  export let imageWidth = 'auto';
+  export let imageHeight = 'auto';
 </script>
 
 <img
   src={imageSrc}
   alt={imageAlt}
-  class={imageStyle}
+  class='image {imageStyle}'
+  width={imageWidth}
+  height={imageHeight}
 />
 
 <style>
+  .image{
+    object-fit: contain;
+  }
+
   .image--large{
     height: 775px;
     width: 895px;
