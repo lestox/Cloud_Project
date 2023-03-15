@@ -39,5 +39,4 @@
       background-color: var(--color-primary);
       border-radius: 0 var(--large-radius) var(--large-radius) 0;
     }
-
 </style>

@@ -1,0 +1,19 @@
+FROM ubuntu:20.04
+
+
+# Install PHP 7.4, MySQL and Nginx
+RUN apt update -y && apt upgrade -y && \
+    apt install -y php7.4-fpm && \
+    apt install -y mariadb-server  && \
+    apt install -y php7.4-fpm && \
+    apt install -y php7.4-mysql && \
+    apt install nginx -y && \
+    service php7.4-fpm restart && \
+    service nginx start
+
+
+
+
+
+
+
