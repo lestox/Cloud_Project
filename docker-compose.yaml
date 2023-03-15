@@ -4,7 +4,7 @@ services:
     fast-api:
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: pythonDockerfile
         ports:
             - '8004:8000'
         environment:
@@ -41,6 +41,19 @@ services:
             - "8081:80"
         networks:
             - postgres
+
+    server:
+        container_name: server
+        build:
+            context: .
+            dockerfile: serverDockerfile
+        volumes:
+            - ./nginx/:/etc/nginx/
+        ports:
+            - "80:80"
+        command:  bash -c "service nginx start && sleep infinity"
+            
+        
 volumes:
     db:
 
