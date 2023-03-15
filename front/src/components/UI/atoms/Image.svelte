@@ -20,4 +20,8 @@
     object-fit: cover;
     border-radius: var(--border-radius);
   }
+
+  .image--regular{
+    width: 375px;
+  }
 </style>
