@@ -13,5 +13,6 @@
       max-width: 380px;
       display: block;
       text-align: center;
+      align-self: center;
     }
 </style>
