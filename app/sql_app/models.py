@@ -1,13 +1,15 @@
-import sqlalchemy
-
-from .database import Base
+from sqlmodel import SQLModel, Field
 
 
-class User(Base):
-    __tablename__ = 'user'
-    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
-    fullname = sqlalchemy.Column(sqlalchemy.String(length=100))
-    email = sqlalchemy.Column(sqlalchemy.String(length=100))
-    password = sqlalchemy.Column(sqlalchemy.String(length=120))
+class UserBase(SQLModel):
+    fullname: str
+    email: str
+    password: str
 
-# Base.metadata.create_all(engine)
+
+class User(UserBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+
+
+class UserCreate(UserBase):
+    pass

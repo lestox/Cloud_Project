@@ -6,22 +6,25 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - '2345:80'
+            - '8004:8000'
+        environment:
+            - DATABASE_URL=postgresql+asyncpg://user:password@db:5432/foo
+        depends_on:
+            - db
+        links:
+            - db
 
     db:
-        image: mysql:5.7
+        image: postgres:13.4
         restart: always
         environment:
-            MYSQL_DATABASE: 'data'
-            MYSQL_PASSWORD: 'password'
-            MYSQL_ROOT_PASSWORD: 'password'
-        ports:
-            - '3306:3306'
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=data
         expose:
-            - '3306'
+            - '5432'
         volumes:
-            - db:/var/lib/mysql
-
+            - db:/var/lib/postgres
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
@@ -30,7 +33,7 @@ services:
             - db
         environment:
             PMA_HOST: db
-            PMA_PORT: 3306
+            PMA_PORT: 5432
             PMA_ARBITRARY: 1
         restart: always
         ports:
