@@ -68,6 +68,7 @@ button:focus {
   --lighter-blue: #82BDC3;
   --background-blue: #E9F6F7;
   --grey: #8C8C8C;
+  --lighter-grey: #E0EAEB;
   --white: #FFFFFF;
   --black: #505050;
 
@@ -80,6 +81,7 @@ button:focus {
   --color-secondary: var(--lighter-blue);
   --color-highlight: var(--darker-blue);
   --color-disabled: var(--grey);
+  --color-border: var(--lighter-grey);
 
   /* FONTS */
   --font-family-primary: 'Montserrat';
@@ -129,6 +131,10 @@ body{
   margin-right: auto;
 }
 
+hr{
+  border: 0.5px solid var(--color-border)
+}
+
 
 
 
@@ -146,14 +152,22 @@ body{
   font-weight: var(--font-weight-bold);
 }
 
+.text-preset-1{
+  font-size: var(--font-size-label-1);
+  line-height: 15px;
+}
+
+.text-preset-2{
+  font-size: var(--font-size-label-2);
+  line-height: 15px;
+}
+
 .text-semibold{
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-regular);
 }
 
 .text-light{
   font-weight: var(--font-weight-light);
-  font-size: var(--font-size-regular);
 }
 
 .margin-top-1 {
@@ -166,25 +180,4 @@ body{
 
 .margin-top-3 {
   margin-top: var(--spacing-3);
-}
-
-
-
-
-
-.user-card__icon{
-  grid-column: 1 / 2;
-  grid-row: 1 / span 2;
-}
-
-.user-card__link{
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  align-self: end;
-}
-
-.user-card__text{
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  align-self: start;
 }
