@@ -1,0 +1,23 @@
+.user-card{
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: 25px 25px;
+  column-gap: 14px;
+}
+
+.user-card__icon{
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
+}
+
+.user-card__link{
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  align-self: end;
+}
+
+.user-card__text{
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  align-self: start;
+}

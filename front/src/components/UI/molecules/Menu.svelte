@@ -15,7 +15,7 @@
 
 <div class="menu">
   <div class="menu-el {current === 'home' ? 'menu-el--active' : ''}">
-    <Icon name="home" >
+    <Icon name="home" class="icon--small" >
       <HomeIcon />
     </Icon>
     <Link
@@ -25,7 +25,7 @@
   </div>
 
   <div class="menu-el {current === 'account' ? 'menu-el--active' : ''}">
-    <Icon name="account">
+    <Icon name="account" class="icon--small" >
       <AccountIcon />
     </Icon>
     <Link
@@ -35,7 +35,7 @@
   </div>
 
   <div class="menu-el">
-    <Icon name="logout">
+    <Icon name="logout" class="icon--small" >
       <LogoutIcon />
     </Icon>
     <Link

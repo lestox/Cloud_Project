@@ -2,6 +2,11 @@
   import Menu from "../molecules/Menu.svelte";
   import Image from "../atoms/Image.svelte";
   import Logo from '../../../assets/img/logo_color.png'
+
+  /**
+   * @type {string}
+  */
+  export let current = 'home';
 </script>
 
 <div class="sidebar-menu">
@@ -10,7 +15,7 @@
     imageAlt="SkyCloud Logo"
     imageWidth=225
   />
-  <Menu current='account' />
+  <Menu current='{current}' />
 </div>
 
 <style>
@@ -20,7 +25,6 @@
     height: 100vh;  
     padding-left: 40px; 
     padding-top: 50px;
-
-    background-color: aquamarine;
+    background-color: var(--color-background-primary);
   }
 </style>

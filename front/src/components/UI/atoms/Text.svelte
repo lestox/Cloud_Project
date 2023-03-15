@@ -4,12 +4,12 @@
   */
   export let textTag = 'p';
   export let textColor = 'var(--color-text-dark)';
-  export let textStyle = 'main-title';
+  export let textStyle;
 </script>
 
 <svelte:element this={textTag}
   style:color={textColor}
-  class={textStyle + ' ' + $$props.class} 
+  class='text {textStyle + ' ' + $$props.class}'
 >
   <slot/>
 </svelte:element>
