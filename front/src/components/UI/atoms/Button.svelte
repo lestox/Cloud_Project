@@ -18,6 +18,7 @@
     color: var(--color-text-light);
     border: var(--border-height-thick) solid var(--color-primary);
     border-radius: var(--small-radius);
+    height: fit-content;
     padding: 16px 40px;
     cursor: pointer;
   }

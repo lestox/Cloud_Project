@@ -1,0 +1,13 @@
+.project-card{
+  height: 205px;
+  width: 245px;
+  padding: var(--spacing-3) var(--spacing-2);
+  background-color: var(--color-background-primary);
+  border-radius: var(--card-radius);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-card .project-card__icon, .project-card__label{
+  width: 100%;
+} 
