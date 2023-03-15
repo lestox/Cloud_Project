@@ -7,7 +7,7 @@
 <body>
     <div class='global-card'>
         <div class='login-section'>
-            <Login class='margin-top-3'/>
+            <Login />
         </div>
         <div class='logo-section'> 
             <Image imageSrc={ProjectIcon} imageAlt="Sky Cloud" imageStyle="image--regular block-center" />
@@ -30,7 +30,7 @@
       border-radius: var(--large-radius);
     }
 
-    .login-section {
+    .login-section, .logo-section {
       display: flex;
       justify-content: center;
     }

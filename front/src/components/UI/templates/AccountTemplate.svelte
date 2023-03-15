@@ -8,7 +8,7 @@
 
 <div class='page'>
   
-  <SidebarMenu />
+  <SidebarMenu current='account'/>
   <AccountInfos />
 
 </div>

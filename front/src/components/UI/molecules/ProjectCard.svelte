@@ -1,5 +1,6 @@
 <script>
   import Text from "../atoms/Text.svelte";
+  import Link from "../atoms/Link.svelte";
   import Icon from "../atoms/Icon.svelte";
 
   import ProjectIcon from "../../../assets/icons/ProjectIcon.svelte";
@@ -11,13 +12,15 @@
   </Icon>
 
   <div class='margin-top-3'>
-    <Text
-      textTag='h3'
-      textColor = 'var(--color-primary)' 
-      class='section-title'
-    >
-      Project Name 1 
-    </Text>
+    <Link linkUrl='/dashboard'>
+      <Text
+        textTag='h3'
+        textColor = 'var(--color-primary)' 
+        class='section-title'
+      >
+        Project Name 1 
+      </Text>
+    </Link>
     <hr />
   </div>
 
