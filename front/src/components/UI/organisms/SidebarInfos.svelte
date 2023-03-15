@@ -5,6 +5,7 @@
 
     import StorageIcon from "../../../assets/icons/StorageIcon.svelte";
     import DatabaseIcon from "../../../assets/icons/DatabaseIcon.svelte";
+    import BackupIcon from "../../../assets/icons/BackupIcon.svelte";
 </script>
 
 <div class='sidebar-infos'>
@@ -31,6 +32,7 @@
       infoTitle = 'Database size'
       infoLabel = '392.2 mo use'
       infoPercentage = '69%'
+      infoIcon = {DatabaseIcon}
     >
       <DatabaseIcon />
     </InfoCard>
@@ -39,7 +41,7 @@
       infoTitle = 'Last backup'
       infoLabel = 'Today at 5:23PM'
     >
-      <DatabaseIcon />
+      <BackupIcon />
     </InfoCard>
   </div>
   

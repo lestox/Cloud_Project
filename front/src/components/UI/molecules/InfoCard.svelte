@@ -15,7 +15,7 @@
 
 <div class='info-card margin-top-1'>
   <Icon class="info-card__icon icon--medium">
-    <StorageIcon />
+    <slot></slot>
   </Icon>
   <Text class="info-card__title"> 
     {infoTitle}
