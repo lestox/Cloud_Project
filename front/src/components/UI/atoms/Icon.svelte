@@ -1,14 +1,13 @@
 <script>
   export let name = ''
   export let color = 'currentColor'
-  export let iconClass = 'icon--small'
 </script>
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
   aria-labelledby={name}
   role="presentation"
-  class={iconClass}
+  class={$$props.class}
 >
   <title id={name} lang="en">{`${name} icon`}</title>
   <g fill={color}>
