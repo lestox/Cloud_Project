@@ -20,4 +20,14 @@ jobs:
       - run: |
           cd front 
           npm run i
-          npm run build
+
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Upload Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: production
+          path: ./build
+		 
+
