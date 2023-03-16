@@ -131,6 +131,10 @@ body{
   margin-right: auto;
 }
 
+.text-center{
+  text-align: center;
+}
+
 hr{
   border: 0.5px solid var(--color-border)
 }
@@ -142,6 +146,10 @@ hr{
 /*------------------------------------*\
   #STYLES
 \*------------------------------------*/
+.hidden{
+  display: none !important;
+}
+
 .main-title{
   font-size: var(--font-size-heading-1);
   font-weight: var(--font-weight-bold);

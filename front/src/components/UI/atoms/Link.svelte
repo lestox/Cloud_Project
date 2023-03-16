@@ -7,6 +7,7 @@
 </script>
 
 <a href="{linkUrl}"
+  on:click
   class="link {$$props.class}" style:color={linkColor}>          
     <slot/>
 </a>

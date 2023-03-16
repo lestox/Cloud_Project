@@ -1,0 +1,2 @@
+<path d="M19 2L2 19" stroke="#505050" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2 2L19 19" stroke="#505050" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
