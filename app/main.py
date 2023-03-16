@@ -1,4 +1,5 @@
 from fastapi import Depends, FastAPI, HTTPException
+from sqlalchemy import update
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -8,8 +9,22 @@ from app.sql_app.db import get_session
 from app.sql_app.models import Users, UsersCreate, Websites, WebsitesCreate
 from app.sql_app.user_password import Hasher
 from app.jwt.auth import AuthHandler
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 logger = logging.getLogger(__name__)
 
@@ -79,17 +94,28 @@ async def post_websites_from_user(name: str, user_id: int,  session: AsyncSessio
     search_websites = query_websites.scalars().all()
     if search_websites:
         raise HTTPException(status_code=409, detail="This name of website already exist for this user")
+
     # 2. Create website on bdd without url
     website = Websites(name=name, user_id=user_id)
     session.add(website)
     await session.commit()
     await session.refresh(website)
-    # 3. Launch script ssh to create website on server (then finish, it has to return url)
-    url = "test@url"
-    # 4. Modify the new created website with the url
-    website_dict = search_websites.dict()
-    await website_dict.update({"url": url})
 
+    # 3. Launch script ssh to create website on server (then finish, it has to return url)
+    generate_url = "test@url"
+
+    # 4. Modify the new created website with the url
+    q = update(Websites).where(Websites.user_id == user_id and Websites.name == name)
+    if generate_url:
+        q = q.values(url=generate_url)
+    q.execution_options(synchronize_session="fetch")
+    await session.execute(q)
+
+    # 5. Get the modified website
+    query_website = await session.execute(
+        select(Websites).where(Websites.user_id == user_id and Websites.name == name))
+    search_website = query_website.scalars().all()
+    return search_website
 
 
 @app.get('/unprotected')
