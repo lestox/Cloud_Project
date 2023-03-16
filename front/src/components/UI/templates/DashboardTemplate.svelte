@@ -9,6 +9,9 @@
   import Text from '../atoms/Text.svelte';
   import Button from '../atoms/Button.svelte';
   import ProjectCard from '../molecules/ProjectCard.svelte';
+  import Modal from '../atoms/Modal.svelte';
+  import Input from '../atoms/Input.svelte';
+  import Icon from '../atoms/Icon.svelte';
 </script>
 
 <div class='page'>
@@ -39,6 +42,18 @@
   </div>
 
   <SidebarInfos />
+
+  <Modal class='hidden'>
+    <Text 
+      textTag='h2' 
+      class='section-title text-center'
+    > 
+      New Website 
+    </Text>
+    <Input type='text' id='project-name' class='margin-top-2' name='project-name' placeholder='Project name' required />
+    <Input type='url' id='url' class='margin-top-1' name='url' placeholder='Url' required />
+    <Button buttonWidth='button--full' class='margin-top-1'> Create </Button>
+  </Modal>
 </div>
 
 <style>
@@ -61,9 +76,5 @@
     display: flex;
     flex-wrap: wrap;
     column-gap: 40px;
-  }
-
-  .page-content h1{
-    width: 100%;
   }
 </style>

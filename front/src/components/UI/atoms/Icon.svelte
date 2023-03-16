@@ -37,4 +37,10 @@
     height: 70px;
     width: 75px;
   }
+
+  .modal__icon{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+  }
 </style>
