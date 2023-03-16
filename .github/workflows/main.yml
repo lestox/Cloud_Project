@@ -19,4 +19,5 @@ jobs:
           node-version: 18.15.0
       - run: |
           cd front 
+          npm run i
           npm run build
