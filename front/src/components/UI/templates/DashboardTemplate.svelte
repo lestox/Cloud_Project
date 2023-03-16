@@ -10,7 +10,27 @@
   import Button from '../atoms/Button.svelte';
   import ProjectCard from '../molecules/ProjectCard.svelte';
   import ModalCreationProject from '../organisms/ModalCreationProject.svelte';
+
+  export let data;
+
+  /*onMount(async() => {
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Bourbon")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      apiData.set(data);
+    }).catch(error => {
+      console.log(error);
+      return [];
+    });
+  });*/
+
 </script>
+<!--{ #each el as item}
+  <div>
+    <p>{item.id}</p>
+  </div>
+{/each}-->
 
 <div class='page'>
   <SidebarMenu />
@@ -26,16 +46,13 @@
     <Button on:click={()=>{document.getElementById("modal-creation-project").hidden = false;}}> Add site </Button>
 
     <div class="content-cards margin-top-2">
-      <ProjectCard 
-        projectName = 'Project Name 1'
-        projectCreation = '09/12/2022'
-        projectUpdate = '03/01/2023'
-      />
-      <ProjectCard 
-        projectName = 'Project Name 2'
-        projectCreation = '05/03/2023'
-        projectUpdate = '13/03/2023'
-      />
+      <!--{#each data.summaries as { title, created, updated }}
+        <ProjectCard 
+          projectName = {title}
+          projectCreation = {created}
+          projectUpdate = {updated}
+        />
+      {/each}-->
     </div>
   </div>
 
