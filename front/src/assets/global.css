@@ -68,6 +68,7 @@ button:focus {
   --lighter-blue: #82BDC3;
   --background-blue: #E9F6F7;
   --grey: #8C8C8C;
+  --lighter-grey: #E0EAEB;
   --white: #FFFFFF;
   --black: #505050;
 
@@ -80,6 +81,7 @@ button:focus {
   --color-secondary: var(--lighter-blue);
   --color-highlight: var(--darker-blue);
   --color-disabled: var(--grey);
+  --color-border: var(--lighter-grey);
 
   /* FONTS */
   --font-family-primary: 'Montserrat';
@@ -99,11 +101,15 @@ button:focus {
   --large-radius: 72px;
   --card-radius: 40px;
   --small-radius: 24px;
-
+  --x-small-radius: 10px;
 
   --border-height-regular: 1px;
   --border-height-thick: 3px;
-  
+
+   /* SPACING */
+  --spacing-1: 20px;
+  --spacing-2: 40px;
+  --spacing-3: 85px;
 }
 
 
@@ -119,6 +125,20 @@ body{
   font-size: var(--font-size-regular);
 }
 
+.block-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center{
+  text-align: center;
+}
+
+hr{
+  border: 0.5px solid var(--color-border)
+}
+
 
 
 
@@ -126,6 +146,9 @@ body{
 /*------------------------------------*\
   #STYLES
 \*------------------------------------*/
+.hidden{
+  display: none !important;
+}
 
 .main-title{
   font-size: var(--font-size-heading-1);
@@ -137,10 +160,32 @@ body{
   font-weight: var(--font-weight-bold);
 }
 
+.text-preset-1{
+  font-size: var(--font-size-label-1);
+  line-height: 15px;
+}
+
+.text-preset-2{
+  font-size: var(--font-size-label-2);
+  line-height: 15px;
+}
+
 .text-semibold{
   font-weight: var(--font-weight-semibold);
 }
 
 .text-light{
   font-weight: var(--font-weight-light);
+}
+
+.margin-top-1 {
+  margin-top: var(--spacing-1);
+}
+
+.margin-top-2 {
+  margin-top: var(--spacing-2);
+}
+
+.margin-top-3 {
+  margin-top: var(--spacing-3);
 }

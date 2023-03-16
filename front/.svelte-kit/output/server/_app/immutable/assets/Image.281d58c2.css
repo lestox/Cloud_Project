@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap');
+
+/*------------------------------------*\
+  #RESET CSS
+\*------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/*------------------------------------*\
+  #GLOBAL VARIABLES
+\*------------------------------------*/
+
+:root{
+  /* COLORS */
+  --blue: #0596a7;
+  --darker-blue: #007381;
+  --lighter-blue: #82BDC3;
+  --background-blue: #E9F6F7;
+  --grey: #8C8C8C;
+  --lighter-grey: #E0EAEB;
+  --white: #FFFFFF;
+  --black: #505050;
+
+  --color-text-dark: var(--black);
+  --color-text-medium: var(--grey);
+  --color-text-light: var(--white);
+  --color-background-primary: var(--white);
+  --color-background-secondary: var(--background-blue);
+  --color-primary: var(--blue);
+  --color-secondary: var(--lighter-blue);
+  --color-highlight: var(--darker-blue);
+  --color-disabled: var(--grey);
+  --color-border: var(--lighter-grey);
+
+  /* FONTS */
+  --font-family-primary: 'Montserrat';
+  
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-heading-1: 36px;
+  --font-size-heading-2: 24px;
+  --font-size-regular: 16px;
+  --font-size-label-1: 12px;
+  --font-size-label-2: 10px;
+  
+  /* BORDERS */
+  --large-radius: 72px;
+  --card-radius: 40px;
+  --small-radius: 24px;
+  --x-small-radius: 10px;
+
+  --border-height-regular: 1px;
+  --border-height-thick: 3px;
+
+   /* SPACING */
+  --spacing-1: 20px;
+  --spacing-2: 40px;
+  --spacing-3: 85px;
+}
+
+/*------------------------------------*\
+  #LAYOUT
+\*------------------------------------*/
+
+body{
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-regular);
+}
+
+.block-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr{
+  border: 0.5px solid var(--color-border)
+}
+
+/*------------------------------------*\
+  #STYLES
+\*------------------------------------*/
+
+.main-title{
+  font-size: var(--font-size-heading-1);
+  font-weight: var(--font-weight-bold);
+}
+
+.section-title{
+  font-size: var(--font-size-heading-2);
+  font-weight: var(--font-weight-bold);
+}
+
+.text-preset-1{
+  font-size: var(--font-size-label-1);
+  line-height: 15px;
+}
+
+.text-preset-2{
+  font-size: var(--font-size-label-2);
+  line-height: 15px;
+}
+
+.text-semibold{
+  font-weight: var(--font-weight-semibold);
+}
+
+.text-light{
+  font-weight: var(--font-weight-light);
+}
+
+.margin-top-1 {
+  margin-top: var(--spacing-1);
+}
+
+.margin-top-2 {
+  margin-top: var(--spacing-2);
+}
+
+.margin-top-3 {
+  margin-top: var(--spacing-3);
+}.image.svelte-t27egx{object-fit:contain}.image--large.svelte-t27egx{height:775px;width:895px;object-fit:cover;border-radius:var(--border-radius)}.image--regular.svelte-t27egx{width:375px}

@@ -1,5 +1,3 @@
-from urllib import request
-
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -68,3 +66,4 @@ def unprotected():
 @app.get('/protected')
 def protected(username=Depends(auth_handler.auth_wrapper)):
     return {'name': username}
+

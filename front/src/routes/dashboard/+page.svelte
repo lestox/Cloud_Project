@@ -1,2 +1,6 @@
-<h1>Dashboard Page</h1>
+<script>
+  import DashboardTemplate from "../../components/UI/templates/DashboardTemplate.svelte";
+</script>
+
+<DashboardTemplate />
 
