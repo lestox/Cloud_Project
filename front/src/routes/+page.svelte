@@ -3,6 +3,8 @@
   import Icon from '../components/UI/atoms/Icon.svelte';
   import ProjectIcon from '../assets/img/logo_white.png';
   import Image from '../components/UI/atoms/Image.svelte';
+  import { posts } from './loadData.svelte';
+  console.log(posts)
 </script>
 
 <Image imageSrc={ProjectIcon}
