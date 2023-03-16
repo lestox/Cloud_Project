@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version:  [14.x, 15.x]
+        node-version:  [15.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -19,7 +19,8 @@ jobs:
           node-version: 18.15.0
       - run: |
           cd front 
-          npm run i
+          npm i
+          npm run build
 
   upload:
     runs-on: ubuntu-latest
@@ -29,5 +30,3 @@ jobs:
         with:
           name: production
           path: ./build
-		 
-
