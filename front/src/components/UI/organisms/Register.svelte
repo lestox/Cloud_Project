@@ -1,6 +1,6 @@
 <script>
-    import Text from '../atoms/Text.svelte';
-    import RegisterForm from '../molecules/forms/RegisterForm.svelte';
+  import Text from '../atoms/Text.svelte';
+  import RegisterForm from '../molecules/forms/RegisterForm.svelte';
 </script>
 
 <div class='login-section {$$props.class}'>
@@ -9,10 +9,10 @@
 </div>
 
 <style>
-    .login-section{
-      max-width: 380px;
-      display: block;
-      text-align: center;
-      align-self: center;
-    }
+  .register-section{
+    max-width: 380px;
+    display: block;
+    text-align: center;
+    align-self: center;
+  }
 </style>

@@ -9,7 +9,7 @@
   <Icon class="user-card__icon icon--large">
     <UserIcon />
   </Icon>
-  <Link class="user-card__link" linkUrl='/about'> 
+  <Link class="user-card__link" linkUrl='/account'> 
     Matt Doe
   </Link>
   <Text class="user-card__text"> 

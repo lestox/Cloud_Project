@@ -1,7 +1,4 @@
-import logging
-
-from sqlmodel import SQLModel, Field, select
-
+from sqlmodel import SQLModel, Field
 
 
 class UsersBase(SQLModel):
@@ -13,16 +10,20 @@ class UsersBase(SQLModel):
 class Users(UsersBase, table=True):
     id: int = Field(default=None, primary_key=True)
 
-    @classmethod
-    async def get_by_email(cls, session, email):
-        query = select(cls).where(cls.email == email)
-        results = await session.execute(query)
-        (result,) = results.one()
-        logging.info(f'--------------{result}-----------------------')
-        if result:
-            return True
-        else:
-            return False
 
 class UsersCreate(UsersBase):
+    pass
+
+
+class WebsitesBase(SQLModel):
+    name: str
+    user_id: int
+    url: str = Field(default=None)
+
+
+class Websites(WebsitesBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+
+
+class WebsitesCreate(WebsitesBase):
     pass

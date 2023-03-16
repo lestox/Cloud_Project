@@ -5,7 +5,10 @@
     export let buttonWidth;
 </script>
 
-<button class="button {buttonWidth} {$$props.class}">            
+<button
+  on:click
+  class="button {buttonWidth} {$$props.class}"
+>            
     <slot/>
 </button>
 

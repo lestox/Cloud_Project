@@ -9,28 +9,10 @@
   import Text from '../atoms/Text.svelte';
   import Button from '../atoms/Button.svelte';
   import ProjectCard from '../molecules/ProjectCard.svelte';
-
-  // import { onMount } from "svelte";
-
-  // let posts = [];
-
-  // onMount(async function () {
-  //   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  //   const data = await response.json();
-  //   console.log(data);
-  //   posts = data;
-  // });
-
+  import ModalCreationProject from '../organisms/ModalCreationProject.svelte';
 </script>
 
 <div class='page'>
-<!-- 
-  {#each posts as item}
-    <div>
-      <p>{item.title}</p>
-    </div>
-  {/each} -->
-
 
   <SidebarMenu />
 
@@ -42,7 +24,7 @@
       My Cloud 
     </Text>
 
-    <Button> Add site </Button>
+    <Button on:click={()=>{document.getElementById("modal-creation-project").hidden = false;}}> Add site </Button>
 
     <div class="content-cards margin-top-2">
       <ProjectCard 
@@ -59,6 +41,8 @@
   </div>
 
   <SidebarInfos />
+
+  <ModalCreationProject id='modal-creation-project' />
 </div>
 
 <style>
@@ -74,6 +58,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    row-gap: 10px;
   }
 
   .content-cards{
@@ -81,9 +66,6 @@
     display: flex;
     flex-wrap: wrap;
     column-gap: 40px;
-  }
-
-  .page-content h1{
-    width: 100%;
+    row-gap: 10px;
   }
 </style>
