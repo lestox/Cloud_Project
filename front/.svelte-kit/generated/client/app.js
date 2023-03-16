@@ -16,8 +16,8 @@ export const dictionary = {
 		"/": [2],
 		"/account": [3],
 		"/dashboard": [4],
-		"/login": [5],
-		"/register": [6]
+		"/login": [~5],
+		"/register": [~6]
 	};
 
 export const hooks = {
