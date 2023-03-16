@@ -10,27 +10,9 @@
   import Button from '../atoms/Button.svelte';
   import ProjectCard from '../molecules/ProjectCard.svelte';
 
-  // import { onMount } from "svelte";
-
-  // let posts = [];
-
-  // onMount(async function () {
-  //   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  //   const data = await response.json();
-  //   console.log(data);
-  //   posts = data;
-  // });
-
 </script>
 
 <div class='page'>
-<!-- 
-  {#each posts as item}
-    <div>
-      <p>{item.title}</p>
-    </div>
-  {/each} -->
-
 
   <SidebarMenu />
 
