@@ -1,7 +1,6 @@
-<script>
-  import Button from "./Button.svelte";
-  import Link from "./Link.svelte";
-  import Icon from "./Icon.svelte";
+<script> 
+  import Link from "../atoms/Link.svelte";
+  import Icon from "../atoms/Icon.svelte";
   import CloseIcon from "../../../assets/icons/CloseIcon.svelte";
 
   /**
