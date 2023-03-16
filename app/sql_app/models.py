@@ -6,12 +6,18 @@ class UsersBase(SQLModel):
     email: str
     password: str
 
+class UsersLogin(SQLModel):
+    email: str
+    password: str
 
 class Users(UsersBase, table=True):
     id: int = Field(default=None, primary_key=True)
 
 
 class UsersCreate(UsersBase):
+    pass
+
+class User4Login(UsersLogin):
     pass
 
 
