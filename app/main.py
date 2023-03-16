@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 import logging
 
 from app.sql_app.db import get_session
-from app.sql_app.models import Users, UsersCreate, Websites, WebsitesCreate
+from app.sql_app.models import Users, UsersCreate, User4Login, Websites, WebsitesCreate
 from app.sql_app.user_password import Hasher
 from app.jwt.auth import AuthHandler
 from fastapi.middleware.cors import CORSMiddleware
@@ -57,17 +57,17 @@ async def register(users: UsersCreate, session: AsyncSession = Depends(get_sessi
     return user
 
 
-@app.get("/login", status_code=200)
-async def login(email: str, password: str, session: AsyncSession = Depends(get_session)):
-    query_email = await session.execute(select(Users).where(Users.email == email))
+@app.post("/login", status_code=200)
+async def login(users: User4Login, session: AsyncSession = Depends(get_session)):
+    query_email = await session.execute(select(Users).where(Users.email == users.email))
     search_email = query_email.scalars().all()
     if not search_email:
         raise HTTPException(status_code=404, detail="User not found")
 
     user_password = search_email[0].password
-    verify_password = Hasher.verify_password(plain_password=password, hashed_password=user_password)
+    verify_password = Hasher.verify_password(plain_password=users.password, hashed_password=user_password)
     if verify_password:
-        token = auth_handler.encode_token(email)
+        token = auth_handler.encode_token(users.email)
         return f'Token : {token} . Successfully login'
     else:
         raise HTTPException(status_code=401, detail="Wrong password")
