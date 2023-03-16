@@ -28,7 +28,7 @@ services:
         volumes:
             - db:/var/lib/postgres
         networks:
-            - postgres
+            - nginx
 
     pgadmin:
         image: dpage/pgadmin4
@@ -42,7 +42,8 @@ services:
         ports:
             - "8081:80"
         networks:
-            - postgres
+            - nginx
+  
 
     server:
         container_name: server
@@ -63,7 +64,6 @@ volumes:
     db:
 
 networks:
-  postgres:
-  nginx:
-          driver: bridge
+   nginx:
+        driver: bridge
 
