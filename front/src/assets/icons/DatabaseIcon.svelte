@@ -1,0 +1,4 @@
+<rect width="35" height="35" rx="6" fill="#82BDC4"/>
+<path d="M17.75 14.5C21.4779 14.5 24.5 13.4926 24.5 12.25C24.5 11.0074 21.4779 10 17.75 10C14.0221 10 11 11.0074 11 12.25C11 13.4926 14.0221 14.5 17.75 14.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="transparent"/>
+<path d="M24.5 17.5C24.5 18.745 21.5 19.75 17.75 19.75C14 19.75 11 18.745 11 17.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="transparent"/>
+<path d="M11 12.25V22.75C11 23.995 14 25 17.75 25C21.5 25 24.5 23.995 24.5 22.75V12.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="transparent"/>
