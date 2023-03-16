@@ -1,0 +1,32 @@
+on:
+  pull_request:
+  push:
+    branches: main
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:  [15.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.15.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.15.0
+      - run: |
+          cd front 
+          npm i
+          npm run build
+
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Upload Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: production
+          path: ./build
