@@ -5,11 +5,10 @@ from sqlmodel import SQLModel
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL")
 
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
-# Define the MySQL engine using MySQL Connector/Python
-engine = create_async_engine(SQLALCHEMY_DATABASE_URL, echo=True, future=True)
+engine = create_async_engine(DATABASE_URL, echo=True, future=True)
 
 
 async def init_db():
