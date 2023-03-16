@@ -9,9 +9,7 @@
   import Text from '../atoms/Text.svelte';
   import Button from '../atoms/Button.svelte';
   import ProjectCard from '../molecules/ProjectCard.svelte';
-  import Modal from '../atoms/Modal.svelte';
-  import Input from '../atoms/Input.svelte';
-  import Icon from '../atoms/Icon.svelte';
+  import ModalCreationProject from '../organisms/ModalCreationProject.svelte';
 </script>
 
 <div class='page'>
@@ -25,7 +23,7 @@
       My Cloud 
     </Text>
 
-    <Button> Add site </Button>
+    <Button on:click={()=>{document.getElementById("modal-creation-project").hidden = false;}}> Add site </Button>
 
     <div class="content-cards margin-top-2">
       <ProjectCard 
@@ -43,17 +41,7 @@
 
   <SidebarInfos />
 
-  <Modal class='hidden'>
-    <Text 
-      textTag='h2' 
-      class='section-title text-center'
-    > 
-      New Website 
-    </Text>
-    <Input type='text' id='project-name' class='margin-top-2' name='project-name' placeholder='Project name' required />
-    <Input type='url' id='url' class='margin-top-1' name='url' placeholder='Url' required />
-    <Button buttonWidth='button--full' class='margin-top-1'> Create </Button>
-  </Modal>
+  <ModalCreationProject id='modal-creation-project' />
 </div>
 
 <style>
@@ -69,6 +57,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    row-gap: 10px;
   }
 
   .content-cards{
@@ -76,5 +65,6 @@
     display: flex;
     flex-wrap: wrap;
     column-gap: 40px;
+    row-gap: 10px;
   }
 </style>

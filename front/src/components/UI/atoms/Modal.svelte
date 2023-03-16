@@ -1,11 +1,22 @@
 <script>
+  import Button from "./Button.svelte";
+  import Link from "./Link.svelte";
   import Icon from "./Icon.svelte";
   import CloseIcon from "../../../assets/icons/CloseIcon.svelte";
+
+  /**
+   * @type {string}
+  */
+  export let id;
 </script>
 
-<div class='modal-background {$$props.class}'>
+<div id={id} class='modal-background {$$props.class}' hidden>
   <div class='modal block-center'>
-    <Icon name="close" class="modal__icon icon--small"> <CloseIcon /> </Icon>
+    <Link
+      on:click={()=>{document.getElementById("modal-creation-project").hidden = true;}}
+    >
+      <Icon name="close" class="modal__icon icon--small"> <CloseIcon /> </Icon>
+  </Link>
     <div class='modal__content block-center'>
       <slot />
     </div>
