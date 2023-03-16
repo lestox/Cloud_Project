@@ -4,7 +4,7 @@ services:
     fast-api:
         build:
             context: .
-            dockerfile: pythonDockerfile
+            dockerfile: Dockerfile
         ports:
             - '8004:8000'
         environment:
@@ -25,8 +25,8 @@ services:
             - '5432'
         volumes:
             - db:/var/lib/postgres
-        networks:
-            - postgres
+#        networks:
+#            - postgres
 
     pgadmin:
         image: dpage/pgadmin4
@@ -39,24 +39,10 @@ services:
         restart: always
         ports:
             - "8081:80"
-        networks:
-            - postgres
-
-    server:
-        container_name: server
-        build:
-            context: .
-            dockerfile: serverDockerfile
-        volumes:
-            - ./nginx/:/etc/nginx/
-            - ./front/build/:/front
-        ports:
-            - "80:80"
-        command:  bash -c "service nginx start && sleep infinity"
-            
-        
+#        networks:
+#            - postgres
 volumes:
     db:
 
-networks:
-  postgres:
+#networks:
+#  postgres:
