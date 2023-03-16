@@ -4,8 +4,8 @@
 </script>
 
 <div class='login-section {$$props.class}'>
-  <Text textTag='h1' textStyle='main-title'>Welcome back 👋</Text>
-  <Login class='margin-top-3' method="Post" action="/login"/>
+    <Text textTag='h1' textStyle='main-title'>Welcome back 👋</Text>
+    <Login class='margin-top-3' method="Post" action="?/login"/>
 </div>
 
 <style>
