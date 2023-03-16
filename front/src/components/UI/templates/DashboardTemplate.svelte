@@ -3,7 +3,7 @@
   import '../../../assets/css/UserCard.css'
   import '../../../assets/css/InfoCard.css'
   import '../../../assets/css/ProjectCard.css'
-  
+
   import SidebarMenu from "../organisms/SidebarMenu.svelte";
   import SidebarInfos from '../organisms/SidebarInfos.svelte';
   import Text from '../atoms/Text.svelte';
@@ -13,6 +13,7 @@
 </script>
 
 <div class='page'>
+
   <SidebarMenu />
 
   <div class='page-content margin-top-3'>
