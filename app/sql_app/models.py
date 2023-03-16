@@ -13,3 +13,17 @@ class Users(UsersBase, table=True):
 
 class UsersCreate(UsersBase):
     pass
+
+
+class WebsitesBase(SQLModel):
+    name: str
+    user_id: int
+    url: str = Field(default=None)
+
+
+class Websites(WebsitesBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+
+
+class WebsitesCreate(WebsitesBase):
+    pass
