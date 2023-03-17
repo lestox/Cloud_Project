@@ -1,6 +1,7 @@
 /** @type {import('./$types').Actions} */
 import { redirect } from '@sveltejs/kit';
 import { BASE_URL } from '$env/static/private';
+import { user } from '../../stores';
 
 export const actions = {
     login: async ({ cookies, request }) => {
@@ -16,6 +17,8 @@ export const actions = {
             "password" : password})})
         
         if (res.status == 200){
+            user.set(loginResponse);
+            console.log(user);
             throw redirect(302, '/');
         }
     }
