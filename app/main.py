@@ -115,20 +115,20 @@ async def post_websites_from_user(name: str, user_name: str,  session: AsyncSess
     await session.refresh(website)
 
     # 3. Launch script ssh to create website on server (then finish, it has to return url)
-    if add_new_website(skycloud_username=user_name, skycloud_projectname= name):
-        
-        # 4. Modify the new created website with the url
-        q = update(Websites).where(Websites.user_id == search_user[0].id and Websites.name == name)
-        accessSsh = f'ssh {user_name}@40.67.233.34'
-        q = q.values(url=accessSsh)
-        q.execution_options(synchronize_session="fetch")
-        await session.execute(q)
+    add_new_website(skycloud_username=user_name, skycloud_projectname= name)
+    
+    # 4. Modify the new created website with the url
+    q = update(Websites).where(Websites.user_id == search_user[0].id and Websites.name == name)
+    accessSsh = f'ssh {user_name}@40.67.233.34'
+    q = q.values(url=accessSsh)
+    q.execution_options(synchronize_session="fetch")
+    await session.execute(q)
 
-        # 5. Get the modified website
-        query_website = await session.execute(
-            select(Websites).where(Websites.user_id == search_user[0].id and Websites.name == name))
-        search_website = query_website.scalars().all()
-        return search_website
+    # 5. Get the modified website
+    query_website = await session.execute(
+        select(Websites).where(Websites.user_id == search_user[0].id and Websites.name == name))
+    search_website = query_website.scalars().all()
+    return search_website
 
 
 @app.get("/storage", status_code=200)

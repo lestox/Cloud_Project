@@ -28,7 +28,7 @@
     <InfoCard
       infoTitle = 'Storage'
       infoLabel = '10.73go use'
-      infoPercentage = '22%'
+      infoPercentage = {data.dataInfo}
     >
       <StorageIcon />
     </InfoCard>
@@ -36,7 +36,7 @@
     <InfoCard
       infoTitle = 'Database size'
       infoLabel = '392.2 mo use'
-      infoPercentage = '69%'
+      infoPercentage = '18%'
       infoIcon = {DatabaseIcon}
     >
       <DatabaseIcon />
