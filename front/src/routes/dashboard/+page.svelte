@@ -3,4 +3,3 @@
   export let data
 </script>
 <DashboardTemplate data={data}/>
-

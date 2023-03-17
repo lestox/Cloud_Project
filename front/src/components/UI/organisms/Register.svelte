@@ -3,7 +3,7 @@
   import RegisterForm from '../molecules/forms/RegisterForm.svelte';
 </script>
 
-<div class='login-section {$$props.class}'>
+<div class='register-section {$$props.class}'>
     <Text textTag='h1' textStyle='main-title'>Welcome 👋</Text>
     <RegisterForm class='margin-top-3' method="Post" action="?/register"/>
 </div>

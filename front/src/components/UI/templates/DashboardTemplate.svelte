@@ -29,13 +29,19 @@
     <Button on:click={()=>{document.getElementById("modal-creation-project").hidden = false;}}> Add site </Button>
 
     <div class="content-cards margin-top-2">
-      {#each data.item as project}
-        <ProjectCard 
-          projectName = {project.name}
-          projectCreation = '09/12/2022'
-          projectUpdate = {project.url}
-        />
-      {/each}
+      {#if data.item[0]}
+        {#each data.item as project}
+          <ProjectCard 
+            projectName = {project.name}
+            projectCreation = '09/12/2022'
+            projectUpdate = {project.url}
+          />
+        {/each}
+      {:else}
+        <Text textTag='p'> You don't have a project yet. You can create one. </Text>
+      {/if}
+
+      
     </div>
   </div>
 
