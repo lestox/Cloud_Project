@@ -2,6 +2,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy import update
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import text
 from fastapi.middleware.cors import CORSMiddleware
 
 import logging
@@ -136,6 +137,14 @@ async def get_storage():
     return script.replace("\n", '')
 
 
+@app.get("/bdd_storage", status_code=200)
+async def get_bdd_storage(session: AsyncSession = Depends(get_session)):
+    sql = text("SELECT pg_size_pretty(pg_database_size('data'));")
+    result = session.execute(sql)
+    logger.info(f"-------------- {result} --------------")
+    print(result)
+
+
 @app.get('/unprotected')
 def unprotected():
     return {'hello': 'world'}
@@ -144,4 +153,3 @@ def unprotected():
 @app.get('/protected')
 def protected(username=Depends(auth_handler.auth_wrapper)):
     return {'name': username}
-
