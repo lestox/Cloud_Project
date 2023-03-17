@@ -7,10 +7,11 @@ from fastapi.middleware.cors import CORSMiddleware
 import logging
 
 from app.sql_app.db import get_session
-from app.sql_app.models import Users, UsersCreate, User4Login, Websites, WebsitesCreate
+from app.sql_app.models import Users, UsersCreate, User4Login, Websites
 from app.sql_app.user_password import Hasher
 from app.sql_app.db import init_db
 from app.jwt.auth import AuthHandler
+from app.shell.azure import add_new_user
 
 app = FastAPI()
 
@@ -55,6 +56,8 @@ async def register(users: UsersCreate, session: AsyncSession = Depends(get_sessi
     search_email = query_email.scalars().all()
     if search_email:
         raise HTTPException(status_code=409, detail="User already exist")
+    if add_new_user(skycloud_username=users.fullname, skycloud_password=users.password):
+        return "All good, i think ...."
     encrypted_password = Hasher.get_password_hash(users.password)
     user = Users(fullname=users.fullname, email=users.email, password=encrypted_password)
     session.add(user)
