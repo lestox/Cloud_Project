@@ -16,6 +16,7 @@ def launch_command_into_skycloud(command):
         stdin, stdout, stderr = client.exec_command(command)
         output = stdout.read()
         print(output.decode())
+        return output.decode()
     client.close()
 
 
