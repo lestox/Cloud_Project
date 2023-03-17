@@ -18,7 +18,7 @@
     <ProjectIcon />  
   </Icon>
 
-  <div class='margin-top-3'>
+  <div class='margin-top-3 full-width'>
     <Link linkUrl='/dashboard'>
       <Text
         textTag='h3'

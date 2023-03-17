@@ -20,7 +20,7 @@ export const actions = {
             "password" : password})})
         
         if (res.status == 201){
-          throw redirect(302, '/');
+          throw redirect(302, '/dashboard');
         }
     },
   };

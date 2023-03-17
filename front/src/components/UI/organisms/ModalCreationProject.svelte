@@ -9,5 +9,5 @@
 </script>
 
 <Modal id={id}>
-  <AddProjectForm method="Post" action="/add"/>
+  <AddProjectForm method="Post" action="?/add"/>
 </Modal>
