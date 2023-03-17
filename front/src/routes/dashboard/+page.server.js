@@ -8,9 +8,11 @@ export async function load({ fetch }) {
   const res = await fetch(BASE_URL + '/user_websites/?user_id=' + USER_ID);
   const item = await res.json();
   const result = await fetch(BASE_URL + '/users');
+  const data = await fetch(BASE_URL + '/storage');
+  const dataInfo = data.json();
   const user = await result.json();
  
-  return { item, user };
+  return { item, user, dataInfo };
 }
 
 export const actions = {

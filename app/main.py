@@ -125,11 +125,11 @@ async def post_websites_from_user(name: str, user_name: str,  session: AsyncSess
         await session.execute(q)
         await session.commit()
 
-        # 5. Get the modified website
-        query_website = await session.execute(
-            select(Websites).where(Websites.user_id == search_user[0].id and Websites.name == name))
-        search_website = query_website.scalars().all()
-        return search_website
+    # 5. Get the modified website
+    query_website = await session.execute(
+        select(Websites).where(Websites.user_id == search_user[0].id and Websites.name == name))
+    search_website = query_website.scalars().all()
+    return search_website
 
 
 @app.get("/storage", status_code=200)
