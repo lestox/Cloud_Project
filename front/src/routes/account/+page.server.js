@@ -1,8 +1,9 @@
 /** @type {import('./$types').PageLoad} */
+import { BASE_URL } from '$env/static/private';
+
 export async function load({ fetch }) {
-  const url = import.meta.env.VITE_BASE_URL;
-  const res = await fetch(url + `/users`);
+  const res = await fetch(BASE_URL + `/users`);
   const item = await res.json();
  
   return { item };
-}
+}  

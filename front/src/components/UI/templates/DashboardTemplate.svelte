@@ -10,6 +10,8 @@
   import Button from '../atoms/Button.svelte';
   import ProjectCard from '../molecules/ProjectCard.svelte';
   import ModalCreationProject from '../organisms/ModalCreationProject.svelte';
+
+  export let data;
 </script>
 
 <div class='page'>
@@ -27,20 +29,17 @@
     <Button on:click={()=>{document.getElementById("modal-creation-project").hidden = false;}}> Add site </Button>
 
     <div class="content-cards margin-top-2">
-      <ProjectCard 
-        projectName = 'Project Name 1'
-        projectCreation = '09/12/2022'
-        projectUpdate = '03/01/2023'
-      />
-      <ProjectCard 
-        projectName = 'Project Name 2'
-        projectCreation = '05/03/2023'
-        projectUpdate = '13/03/2023'
-      />
+      {#each data.item as project}
+        <ProjectCard 
+          projectName = {project.name}
+          projectCreation = '09/12/2022'
+          projectUpdate = {project.url}
+        />
+      {/each}
     </div>
   </div>
 
-  <SidebarInfos />
+  <SidebarInfos data={data}/>
 
   <ModalCreationProject id='modal-creation-project' />
 </div>
