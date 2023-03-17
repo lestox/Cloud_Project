@@ -123,6 +123,7 @@ async def post_websites_from_user(name: str, user_name: str,  session: AsyncSess
         q = q.values(url=accessSsh)
         q.execution_options(synchronize_session="fetch")
         await session.execute(q)
+        await session.commit()
 
         # 5. Get the modified website
         query_website = await session.execute(
