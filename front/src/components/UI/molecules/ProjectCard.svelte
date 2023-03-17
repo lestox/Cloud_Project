@@ -44,7 +44,7 @@
       textColor = 'var(--color-primary)' 
       class='.project-card__label text-light text-preset-2'
     >
-      Updated: {projectUpdate}
+      Access: {projectUpdate}
     </Text>
   </div>
 

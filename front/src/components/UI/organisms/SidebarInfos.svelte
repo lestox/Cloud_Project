@@ -6,11 +6,14 @@
     import StorageIcon from "../../../assets/icons/StorageIcon.svelte";
     import DatabaseIcon from "../../../assets/icons/DatabaseIcon.svelte";
     import BackupIcon from "../../../assets/icons/BackupIcon.svelte";
+
+    export let data;
+    let USER_ID = import.meta.env.VITE_USER_ID;
 </script>
 
 <div class='sidebar-infos'>
   <div class='margin-top-2'>
-    <UserCard />
+    <UserCard data={data}/>
     <hr class="margin-top-1"/>
   </div> 
 
@@ -51,6 +54,13 @@
     <hr class="margin-top-1" />
     <Text 
       textTag='p'
+      class="text-light text-preset-2 margin-top-1"
+      textColor="var(--color-text-medium)"
+    >
+      Tips : your ssh password is your account password
+    </Text>
+    <Text 
+      textTag='p'
       class="text-preset-1 text-light margin-top-1"
       textColor="var(--color-text-medium)"
     >
@@ -61,14 +71,12 @@
       class="text-preset-1 text-light"
       textColor="var(--color-text-medium)"
     >
-      by Matt Doe
-    </Text>
-    <Text 
-      textTag='p'
-      class="text-preset-1 text-light"
-      textColor="var(--color-text-medium)"
-    >
-      Last update : 14.03.2023
+      by     
+      {#each data.user as user}
+        {#if user.id == USER_ID}
+          {user.fullname}
+        {/if}
+      {/each}
     </Text>
   </div>
 </div>

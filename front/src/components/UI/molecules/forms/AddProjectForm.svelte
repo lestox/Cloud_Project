@@ -18,6 +18,5 @@
     New Website 
   </Text>
   <Input type='text' id='project-name' class='margin-top-2' name='project-name' placeholder='Project name' required />
-  <Input type='url' id='url' class='margin-top-1' name='url' placeholder='Url' required />
   <Button buttonWidth='button--full' class='margin-top-1'> Create </Button>
 </form>

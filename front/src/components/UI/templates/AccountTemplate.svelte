@@ -4,12 +4,14 @@
   import SidebarMenu from '../organisms/SidebarMenu.svelte';
   import AccountInfos from '../organisms/AccountInfos.svelte';
 
+  export let data;
+
 </script>
 
 <div class='page'>
   
   <SidebarMenu current='account'/>
-  <AccountInfos />
+  <AccountInfos data={data}/>
 
 </div>
 

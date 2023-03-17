@@ -1,6 +1,9 @@
 <script>
   import Text from "../atoms/Text.svelte";
   import Button from "../atoms/Button.svelte";
+
+  export let data;
+  let USER_ID = import.meta.env.VITE_USER_ID;
 </script>
 
 <div class='account'>
@@ -22,7 +25,11 @@
     <Text
       textTag='p'
     >
-      Matt Doe
+    {#each data.item as user}
+      {#if user.id == USER_ID}
+        {user.fullname}
+      {/if}
+    {/each}
     </Text>
   </div>
   
@@ -37,7 +44,11 @@
     <Text
       textTag='p'
     >
-      matt.doe@gmail.com
+      {#each data.item as user}
+        {#if user.id == USER_ID}
+          {user.email}
+        {/if}
+      {/each}
     </Text>
   </div>
   
