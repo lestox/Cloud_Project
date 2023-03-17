@@ -11,7 +11,7 @@ from app.sql_app.models import Users, UsersCreate, User4Login, Websites
 from app.sql_app.user_password import Hasher
 from app.sql_app.db import init_db
 from app.jwt.auth import AuthHandler
-from app.shell.azure import add_new_user, add_new_website
+from app.shell.azure import add_new_user, add_new_website, launch_command_into_skycloud
 
 app = FastAPI()
 
@@ -128,6 +128,12 @@ async def post_websites_from_user(name: str, user_name: str,  session: AsyncSess
             select(Websites).where(Websites.user_id == search_user[0].id and Websites.name == name))
         search_website = query_website.scalars().all()
         return search_website
+
+
+@app.get("/storage", status_code=200)
+async def get_storage():
+    script = launch_command_into_skycloud("df -h | grep -w / | awk '{print $5}'")
+    return script.replace("\n", '')
 
 
 @app.get('/unprotected')
