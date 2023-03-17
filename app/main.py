@@ -2,14 +2,15 @@ from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy import update
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi.middleware.cors import CORSMiddleware
 
 import logging
 
 from app.sql_app.db import get_session
 from app.sql_app.models import Users, UsersCreate, User4Login, Websites, WebsitesCreate
 from app.sql_app.user_password import Hasher
+from app.sql_app.db import init_db
 from app.jwt.auth import AuthHandler
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -29,6 +30,11 @@ app.add_middleware(
 logger = logging.getLogger(__name__)
 
 auth_handler = AuthHandler()
+
+
+@app.on_event("startup")
+async def on_startup():
+    await init_db()
 
 
 @app.get("/ping")
