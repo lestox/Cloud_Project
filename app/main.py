@@ -11,7 +11,7 @@ from app.sql_app.models import Users, UsersCreate, User4Login, Websites
 from app.sql_app.user_password import Hasher
 from app.sql_app.db import init_db
 from app.jwt.auth import AuthHandler
-from app.shell.azure import add_new_user
+from app.shell.azure import add_new_user, add_new_website
 
 app = FastAPI()
 
@@ -57,13 +57,12 @@ async def register(users: UsersCreate, session: AsyncSession = Depends(get_sessi
     if search_email:
         raise HTTPException(status_code=409, detail="User already exist")
     if add_new_user(skycloud_username=users.fullname, skycloud_password=users.password):
-        return "All good, i think ...."
-    encrypted_password = Hasher.get_password_hash(users.password)
-    user = Users(fullname=users.fullname, email=users.email, password=encrypted_password)
-    session.add(user)
-    await session.commit()
-    await session.refresh(user)
-    return user
+        encrypted_password = Hasher.get_password_hash(users.password)
+        user = Users(fullname=users.fullname, email=users.email, password=encrypted_password)
+        session.add(user)
+        await session.commit()
+        await session.refresh(user)
+        return user
 
 
 @app.post("/login", status_code=200)
@@ -97,21 +96,27 @@ async def get_websites_from_user(user_id: int, session: AsyncSession = Depends(g
 
 
 @app.post("/user_websites", status_code=200)
-async def post_websites_from_user(name: str, user_id: int,  session: AsyncSession = Depends(get_session)):
-    # 1. Verify if website already exist (by user_id and name)
-    query_websites = await session.execute(select(Websites).where(Websites.user_id == user_id and Websites.name == name))
-    search_websites = query_websites.scalars().all()
-    if search_websites:
-        raise HTTPException(status_code=409, detail="This name of website already exist for this user")
+async def post_websites_from_user(name: str, user_name: str,  session: AsyncSession = Depends(get_session)):
 
+    # 1. Verify if website already exist (by user_id and name)
+    #query_websites = await session.fetchall(f"select * from websites w inner join users u on u.id = w.user_id where u.fullname = {user_name} and w.name = {name}")
+    #search_websites = query_websites.scalars().all()
+    # if query_websites:
+    #     raise HTTPException(status_code=409, detail="This name of website already exist for this user")
+
+    query_user = await session.execute(select(Users).where(Users.fullname == user_name))
+    search_user = query_user.scalars().all()
+ 
     # 2. Create website on bdd without url
-    website = Websites(name=name, user_id=user_id)
+    website = Websites(name=name, user_id= search_user[0].id)
     session.add(website)
     await session.commit()
     await session.refresh(website)
 
     # 3. Launch script ssh to create website on server (then finish, it has to return url)
-    generate_url = "test@url"
+    if add_new_website(skycloud_username=user_name, skycloud_projectname= name):
+        return 'well created'
+
 
     # 4. Modify the new created website with the url
     q = update(Websites).where(Websites.user_id == user_id and Websites.name == name)
